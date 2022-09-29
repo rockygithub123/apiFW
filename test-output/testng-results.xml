@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="7" total="8" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-09-29T17:09:30 IST" name="Suite" finished-at="2022-09-29T17:09:32 IST" duration-ms="1360">
+    <groups>
+      <group name="smoke">
+        <method signature="GetTestCasessTest.getProjectsTest()[pri:0, instance:ApiTestCasesWithCrud.GetTestCasessTest@5f9b2141]" name="getProjectsTest" class="ApiTestCasesWithCrud.GetTestCasessTest"/>
+      </group> <!-- smoke -->
+    </groups>
+    <test started-at="2022-09-29T17:09:30 IST" name="Test" finished-at="2022-09-29T17:09:32 IST" duration-ms="1360">
+      <class name="ApiTestCasesWithCrud.GetTestCasessTest">
+        <test-method signature="getProjectsTest()[pri:0, instance:ApiTestCasesWithCrud.GetTestCasessTest@5f9b2141]" started-at="2022-09-29T17:09:30 IST" name="getProjectsTest" finished-at="2022-09-29T17:09:32 IST" duration-ms="1327" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getProjectsTest -->
+      </class> <!-- ApiTestCasesWithCrud.GetTestCasessTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
