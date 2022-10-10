@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ApiTestCasesWithCrud.UpdateTestCasessTest">
+      <class name="Authentication.Auth2Test">
         <methods>
-          <include name="updateProjectWithOtherProtocalTest"/>
+          <include name="authTest"/>
         </methods>
-      </class> <!-- ApiTestCasesWithCrud.UpdateTestCasessTest -->
+      </class> <!-- Authentication.Auth2Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

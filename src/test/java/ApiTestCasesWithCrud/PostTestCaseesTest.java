@@ -9,14 +9,18 @@ import java.util.Random;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
+import GenericUtility.JavaUtility;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
+import junit.framework.Assert;
 
 public class PostTestCaseesTest {
-	int ran= new Random().nextInt(500);
-	@Test(groups = {"smoke"},invocationCount = 2)
+	int ran= new JavaUtility().randomNumber();
+	@Test(groups = {"smoke"},invocationCount = 1)
 	public void addProjectTest()
 	{
-		  
+		int ran= new Random().nextInt(500);  
 		JSONObject js=new JSONObject();
 		js.put("createdBy", "king");
 		js.put("projectName", "pr01"+ran);
@@ -25,14 +29,23 @@ public class PostTestCaseesTest {
 		baseURI="http://localhost";
 		port=8084;
 		
-		given()
+		Response res = given()
 		    .body(js)
 		    .contentType(ContentType.JSON)
 		.when()
-		    .post("/addProject")
-		.then()
-		     .assertThat()
-		       .log().all();
+		    .post("/addProject");
+		String  actual = res.getStatusLine();
+		String expected="HTTP/1.1 201 ";
+		String actvary=res.getHeader("vary");
+		String expecvary="Access-Control-Request-Headers";
+		String expPragma="no-cache";
+		String actualtPragma=res.getHeader("pragma");
+		Assert.assertEquals(expected,actual);
+		Assert.assertEquals(expecvary, actvary);
+		Assert.assertEquals(expPragma, actualtPragma);
+		 
+	
+		
 	}
 	@Test
 	public void addProjectWithOutBodyTest()
@@ -42,14 +55,15 @@ public class PostTestCaseesTest {
 		baseURI="http://localhost";
 		port=8084;
 		
-		given()
+		Response resp = given()
 		    //.body()
 		    .contentType(ContentType.JSON)
 		.when()
-		    .post("/addProject")
-		.then()
-		     .assertThat()
-		       .log().all();
+		    .post("/addProject");
+		String expSL="HTTP/1.1 500 ";
+		String actSL=resp.getStatusLine();
+		Assert.assertEquals(expSL, actSL);
+		
 	}
 	@Test
 	
@@ -65,14 +79,25 @@ public class PostTestCaseesTest {
 		baseURI="http://localhost";
 		port=8084;
 		
-		given()
+		Response resp = given()
 		    .body(js)
 		    .contentType(ContentType.JSON)
 		.when()
-		    .post("/addProject")
-		.then()
-		     .assertThat()
-		       .log().all();
+		    .post("/addProject");
+		String expeSL="HTTP/1.1 201 ";
+		String actSL=resp.getStatusLine();
+		Assert.assertEquals(expeSL, actSL);
+		String expbd="null";
+		String actbd=resp.getBody().toString();
+		boolean flag=false;
+		if(actbd.contains(actbd))
+		{
+			flag=true;
+			System.out.println("null present");
+		}
+		Assert.assertTrue(flag);
+		
+		
 	}
 	@Test
 	public void addProjectWithOutMandatoryFieldTest()
@@ -87,14 +112,15 @@ public class PostTestCaseesTest {
 		baseURI="http://localhost";
 		port=8084;
 		
-		given()
+		Response resp = given()
 		    .body(js)
 		    .contentType(ContentType.JSON)
 		.when()
-		    .post("/addProject")
-		.then()
-		     .assertThat()
-		       .log().all();
+		    .post("/addProject");
+		String expSL="HTTP/1.1 409 ";
+		String actSL=resp.getStatusLine();
+		Assert.assertEquals(expSL, actSL);
+		
 	}
 	@Test
 	public void addProjectWithOutPortTest()
@@ -107,7 +133,7 @@ public class PostTestCaseesTest {
 		
 		
 		baseURI="http://localhost";
-		port=8084;
+//port=8084;
 		
 		given()
 		    .body(js)
