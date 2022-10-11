@@ -46,6 +46,7 @@ public class DataBaseUtlity {
 		  {
 			  if(result.getString(columnIndex).equalsIgnoreCase(expData))
 			  {
+				  System.out.println(result.toString());
 				  flag=true;
 				  break;
 			  }

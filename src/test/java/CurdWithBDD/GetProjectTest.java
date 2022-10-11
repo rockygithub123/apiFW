@@ -15,7 +15,7 @@ public class GetProjectTest {
 		port=8084;
 		
 		when()
-		  .get("/projects/TY_PROJ_006")
+		  .get("/projects/TY_PROJ_823")
 	.then()
 	
 	    .assertThat()

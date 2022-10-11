@@ -1,3 +1,4 @@
+
 package ObjectRepository;
 
 import org.openqa.selenium.By;
@@ -33,8 +34,7 @@ public class AppDashBoard {
 		return ProjectsBtn;
 	}
 	public WebElement getCreateProjectsBtn() {
-		return createProjectsBtn;
-	}
+		return createProjectsBtn;	}
 	public WebElement getProjectsNameTextField() {
 		return projectsNameTextField;
 	}
@@ -64,17 +64,21 @@ public class AppDashBoard {
 		String projectId = pId.getText();
 	return projectId;
 	}
-	public String projectValidate(WebDriver driver,String projectID)
+	public void projectValidate(WebDriver driver,String projectID)
 	{
-		String pid = driver.findElement(By.xpath("//td[contains(.,'"+projectID+"')]")).getText();
-		if(projectID==pid)
-		{
-			return "not deleted and vaidation fail";
+		try{
+			 driver.findElement(By.xpath("//td[contains(.,'"+projectID+"')]")).getText();
+				
+			System.out.println( "not deleted and vaidation fail");
+		
 		}
-		else
-		{
-		return "deleted and validation pass";
-		}
+	catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+		System.out.println("verified and data not present");
+		
+	}
+		
 	}
 	
 	
