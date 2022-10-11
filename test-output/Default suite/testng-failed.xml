@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="EndToEndcsenariosUsingUtility.InsertInDbDeleteInRestValidateIbGuiTest">
+      <class name="EndToEndcsenariosUsingUtility.AddInDBDeleteInGUIValidateInRestTest">
         <methods>
           <include name="validationTest"/>
           <include name="asConfig"/>
           <include name="bsConfig"/>
         </methods>
-      </class> <!-- EndToEndcsenariosUsingUtility.InsertInDbDeleteInRestValidateIbGuiTest -->
+      </class> <!-- EndToEndcsenariosUsingUtility.AddInDBDeleteInGUIValidateInRestTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
