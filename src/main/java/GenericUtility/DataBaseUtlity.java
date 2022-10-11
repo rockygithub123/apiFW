@@ -15,8 +15,8 @@ import com.mysql.jdbc.Driver;
 
 public class DataBaseUtlity {
 	
-	Connection con;
-	Driver driref;
+	public  Connection con;
+	static Driver driref;
 	
 	/**
 	 * This method will connect to database
@@ -27,7 +27,7 @@ public class DataBaseUtlity {
 		
 		try{ driref=new Driver();
 		DriverManager.registerDriver(driref);
-		Connection con = DriverManager.getConnection(Iconstants.jdbc_Path,Iconstants.db_UserName,Iconstants.db_Password);
+		 con = DriverManager.getConnection(Iconstants.jdbc_Path,Iconstants.db_UserName,Iconstants.db_Password);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -64,6 +64,9 @@ public class DataBaseUtlity {
 	
 		
 		
+	}
+	{
+		String query="insert into project values(pid,'rock','15/09/2022','p222','Active',30)";
 	}
 
 }
